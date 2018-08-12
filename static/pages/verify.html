@@ -1,0 +1,399 @@
+<html ng-app="myApp" ng-clock="">
+<head>
+    <title>Verify - CryptoSign</title>
+    <link rel="icon" href="https://crypto-notepad.info/img/app_icon.png" sizes="16x16" type="image/png"> 
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-animate.js"></script>
+    <script src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1/angular-material.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-aria.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-messages.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-resource.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <!-- PDF --->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <link href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1/angular-material.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/angular-material-data-table/0.10.10/md-data-table.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="https://rawgit.com/alalonde/angular-scrollable-table/master/scrollable-table.css" />
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css" rel="stylesheet"/>-->
+	<base href="/">
+    <style>
+/* Space out content a bit */
+@font-face {
+  font-family: 'Circular Std Book';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Circular Std Book'), url('CircularStd-Book.woff') format('woff');
+  }
+
+  body{
+    font-family: 'Circular Std Book', sans-serif;
+  }
+        
+        .footer {
+            background-color: #3D3D3D !important;
+            color: #fff;
+            font-size: 14px;
+            line-height: 25px;
+            bottom: 0;
+            width: 100%;
+            position: fixed;
+        }
+        .headerMenu {
+            float: right;
+            font-style: normal;
+            font-size:15px;
+            margin-top: 0.5vw;
+        }
+        .headerMenuItem {
+            float: right;
+            font-style: normal;
+            font-size:18px;
+            margin-top: 0.5vw;
+            color:#5D8BA4;
+        }
+        .login-form {
+        	margin-top: 60px;
+        }
+
+        form[role=login] {
+        	color: #5d5d5d;
+        	background: #f2f2f2;
+        	padding: 26px;
+        	border-radius: 10px;
+        	-moz-border-radius: 10px;
+        	-webkit-border-radius: 10px;
+        }
+    	form[role=login] img {
+    		display: block;
+    		margin: 0 auto;
+    		margin-bottom: 35px;
+    	}
+    	form[role=login] input,
+    	form[role=login] button {
+    		font-size: 18px;
+    		margin: 16px 0;
+    	}
+    	form[role=login] > div {
+    		text-align: center;
+    	}
+	
+        .form-links {
+        	text-align: center;
+        	margin-top: 1em;
+        	margin-bottom: 50px;
+        }
+    	.form-links a {
+    		color: #fff;
+    	}
+    	.fa-2x {
+            font-size: 1.5em !important;
+            color:white;
+        }
+       
+        
+    </style>
+    <style>
+        .material-icons.md-18 { font-size: 18px; !important }
+        .md-button.md-fab.md-mini {
+            line-height: 26px !important;
+            width: 29px !important;
+            height: 29px !important;
+            color:white !important;
+			Margin-left : 34px;
+            //background-color:#61A60E !important
+        }
+        .floatRight{
+            float:right;
+        }
+        .md-button.md-primary.md-fab:not([disabled]):hover {
+            background-color: #ff9f19 !important;
+            color:white !important;
+            
+        }
+        .md-toolbar.md-default-theme.md-hue-3:not(.md-menu-toolbar), md-toolbar.md-hue-3:not(.md-menu-toolbar) {
+            background-color: #337ab7 !important;
+            min-height: 0.2vw;
+        }
+        .md-toolbar.md-default-theme.md-hue-2:not(.md-menu-toolbar), md-toolbar.md-hue-2:not(.md-menu-toolbar) {
+            background-color: #337ab7!important;
+            color: white;
+            min-height: 2.5vw;
+        }
+        .md-toolbar-tools {
+            background-color: white !important;
+        }
+       .selectdemoSelectHeader {
+          .selectdemoSelectHeader .demo-header-searchbox {
+            border: none;
+            outline: none;
+            height: 100%;
+            width: 100%;
+            padding: 0; }
+          .selectdemoSelectHeader .demo-select-header {
+            box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(0, 0, 0, 0.14), 0 0 0 0 rgba(0, 0, 0, 0.12);
+            padding-left: 10.667px;
+            height: 48px;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: auto; }
+      .selectdemoSelectHeader md-content._md {
+        max-height: 240px; }
+       .md-headline {
+            font-size: 21px;
+            font-weight: 400;
+            line-height: 32px;
+            color: #185A7D;
+        }
+        .md-button.md-default-theme.md-hue-3.md-accent.md-raised:not([disabled]):hover, .md-button.md-hue-3.md-accent.md-raised:not([disabled]):hover, .md-button.md-default-theme.md-hue-3.md-accent.md-fab:not([disabled]):hover, .md-button.md-hue-3.md-accent.md-fab:not([disabled]):hover {
+            color: white;
+            background-color: Orange !important;
+        }
+        .md-button.md-default-theme.md-hue-3.md-accent.md-raised, .md-button.md-hue-3.md-accent.md-raised, .md-button.md-default-theme.md-hue-3.md-accent.md-fab, .md-button.md-hue-3.md-accent.md-fab {
+            color: white;
+            background-color: #ff9f19 !important;
+        }
+        .menudemoCustomTrigger .md-menu-demo {
+            padding: 24px; 
+        }
+        .menudemoCustomTrigger .menu-demo-container {
+            min-height: 200px; 
+        }
+        
+       
+    </style>
+    <script>
+	var domainURL = 'http://localhost:8080';
+	
+    var myApp = angular.module('myApp', ['ngMaterial', 'ngMessages', 'ngAnimate', 'ngRoute','material.svgAssetsCache']);
+    myApp.config(function ($mdThemingProvider) {
+            $mdThemingProvider.theme('default')
+              .primaryPalette('green', {
+                 'default': '700', 
+                  'hue-1': '100', 
+                  'hue-2': '200', 
+                  'hue-3': '300' 
+              })
+              .accentPalette('orange', {
+                  'default': '400', 
+                  'hue-1': '100', 
+                  'hue-2': '600', 
+                  'hue-3': 'A100' 
+              });
+        });
+      myApp.config(function($mdIconProvider) {
+        $mdIconProvider
+          .iconSet('call', 'img/icons/sets/communication-icons.svg', 24);
+      });
+      myApp.filter('pagination', function(){
+             return function(input, start){
+                if (!input || !input.length) { return; }
+                start = +start;
+                return input.slice(start);
+             }
+        });
+      myApp.config(function ($locationProvider) {
+            $locationProvider.html5Mode(true);
+        });       
+      myApp.controller('AppCtrl',['$location','$sce','$scope','$http',function($location,$sce,$scope,$http) {
+			     var prepareVerifyURL = '/api/verify'; 
+			     $scope.isOperationLoading = false;
+           $scope.fileUploadDialog;
+           $scope.fileContent;
+           $scope.verifyURL = prepareVerifyURL;
+           $scope.selectedTab = 0;   
+           $scope.verificationInitiated = false;
+           $scope.isVerified = false;
+			     $(document).ready(function() {
+                    $("#fileInput").change(function(e) {
+                        if (e.target.files != undefined) {
+                            $scope.fileUploadDialog = e.target.files[0].name;
+                            var reader = new FileReader();
+                            reader.onload = function(e) {
+                                $scope.fileContent = window.btoa(e.target.result);
+                                console.log($scope.fileContent);
+                            };
+                            reader.readAsBinaryString(e.target.files[0]);
+                        }
+                    });
+              });	
+			     $scope.verifySignature = function(){
+                $scope.isOperationLoading = true;
+                $scope.verificationInitiated = true;
+                console.log('$scope.fileContent====>'+$scope.fileContent);
+                var parameter = JSON.stringify({type:"user"});
+                $http.post($scope.verifyURL, $scope.fileContent, {
+                   headers: {'Content-Type': 'application/octet-stream'}
+                }).
+                success(function(response) { 
+                  console.log(response);
+                  $scope.isOperationLoading = false;
+                  $scope.selectedTab = 1;
+                  $scope.verificationResult = angular.fromJson(response);
+                  $scope.isVerified = $scope.verificationResult && $scope.verificationResult.signedHash  && $scope.verificationResult.signedHash != '' ;
+                  console.log($scope.verificationResult);
+                }).
+                error(function(response) {
+                });
+				
+			       };
+
+      
+			}]);
+		
+  
+        
+    </script>
+    
+</head>
+    <body ng-controller="AppCtrl" layout="column">
+
+<div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container d-flex justify-content-between">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+        <img src="https://crypto-notepad.info/img/app_icon.png" style="height:50px;width:50px"> &nbsp &nbsp
+        <h2 style="margin:1em;margin-left:0.5em">CryptoSign: Team Dapps</h2>
+      </a>
+      <div style="font-size: 18px; color: white">
+        <a style="color:white" ng-href="/upload" target="_blank">Upload</a> | 
+        <a style="color:white" ng-href ="http://localhost:8080/viewDocument"target="_blank">Sign</a> |
+        <a style="color:white" ng-href ="http://localhost:8080/verifyDcoument"target="_blank">Verify</a> 
+        </div>
+        </div>
+      </div>
+
+      
+
+
+		<md-toolbar class="md-hue-3">
+		</md-toolbar>
+		<div layout="row" layout-sm="column" layout-align="space-around" class="progressLineardemoBasicUsage">
+		 <br/>
+		  <md-progress-linear md-mode="indeterminate" ng-show="isOperationLoading"></md-progress-linear>
+		</div>
+        <md-content>
+          <div class="md-padding" layout-xs="column" layout="row" >
+  				<div flex-xs="" flex-gt-xs="100" layout="column">
+  				  <md-card>
+  					<md-card-content>
+              <md-tabs md-dynamic-height="10px" md-border-bottom="" md-selected="selectedTab"> 
+                 <md-tab label="Upload File"> <br/><br/>
+      						<div layout="row">
+      							<div flex="10"></div>
+      							<div flex="80">
+      								<div >
+      								<table class="table table-bordered table-hover" style="border:0;">
+      									   <thead style="background-color: #efefef;">
+      										   <th colspan="2">Upload Document To Verify</th>
+      										</thead>
+      										<tbody>	
+      										<tr>
+      										 
+      										  <td><br/>
+                                                <div style="margin-left: 30%;">
+                                                
+                                                    
+      												<md-input-container flex="40" style="padding-top:1.5em">
+      													<input  id="fileInput" type="file" aria-label="File" ng-model="fileUploadDialog"></input>
+      												</md-input-container> 
+      												<md-input-container flex="40">
+      													<md-button class="btn btn-primary" ng-click="verifySignature();"><i class="material-icons md-18">file_upload</i>Upload</md-button>
+      												</md-input-container>
+      											</div>	
+      											</td>
+      										</tr>
+      										</tbody>
+      									</table>
+      								<div flex="10"></div>
+      							</div>
+      							</div>
+  						  </div>
+              </md-tab>
+              <md-tab label="Verification Result">
+                 <md-content class="md-padding">
+                     <div style="overflow:auto;overflow-y:auto;max-height:35vw;">
+                       <div layout="row"><br/></div>
+                          <div layout="row" ng-show="verificationInitiated">
+                            <div flex="20"></div>
+                            <div flex="35" ng-show="isVerified">
+                              <label><h4 style="color:green"><b><i class="material-icons">verified_user</i>Your Document is verified succesfully</b></h4></label> 
+                              <hr/>
+                            </div>
+                            <div flex="35" ng-show="!isVerified">
+                              <label><h4 style="color:red"><b><i class="material-icons">cancel</i>Your document is not verified</b></h4></label> 
+                              <hr/>
+                            </div>
+                          </div>
+                           <div layout="row">
+                            <div flex="10"></div>
+                            <div flex="35">
+                              <label><h5><b>Requester : {{verificationResult.email2}}</b></h5></label> 
+                              <hr/>
+                            </div>
+                            <div flex="5"></div>
+                            <div flex="35" >
+                              <label><h5><b>Signer : {{verificationResult.email}}</b></h5></label>    
+                              <hr/>
+                            </div>
+                          </div>
+                           <div layout="row">
+                            <div flex="10"></div>
+                            <div flex="35">
+                              <label><h5><b>Requst Time : {{verificationResult.initTimestamp  | date: 'yyyy-MM-dd HH:MM '}}</b></h5></label> 
+                              <hr/>
+                            </div>
+                            <div flex="5"></div>
+                            <div flex="35">
+                              <label><h5><b>Signed Time  :  {{verificationResult.timestamp  | date: 'yyyy-MM-dd HH:MM '}}</b></h5></label>    
+                              <hr/>
+                            </div>
+                          </div>
+                          <div layout="row">
+                           <div flex="10"></div>
+                            <div flex="35">
+                              <label><h5><b>Signed Location : {{verificationResult.signLocation}}</b></h5></label> 
+                              <hr/>
+                            </div>
+                            <div flex="5"></div>
+                            <div flex="35">
+                              <label><h4><b>Authorised By Crypto Sign</b></h4></label>    
+                            </div>
+                            <div flex="5"></div>
+                            
+                          </div>
+                         
+                          
+                      </div>
+                </md-content> 
+              </md-tab>
+            </md-tabs>
+					</md-card-content>
+				</md-card>
+			</div>
+		</div>
+        </md-content>   
+        <div class="footer">
+			<div layout="row" layout-align="center center">
+				<center>
+					<p id="footer-info" style="padding-top:8px;">Made With <i class="material-icons md-16" style="color:#ff5444">favorite</i> for the Blockchain
+					</p>
+				</center>
+			</div>
+		</div>
+    </body>
+</html>
+ 
